@@ -139,6 +139,10 @@ namespace rift_timer
                 updateDialog.SetVersionText(latestVersion);
                 updateDialog.VisibleChanged += HidePanel;
             }
+            else
+            {
+                updateDialog.Dispose();
+            }
         }
 
         // Hide the update dialog container, handle the dialog choice
