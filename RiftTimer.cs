@@ -136,7 +136,7 @@ namespace rift_timer
             {
                 dialogPanel.Controls.Add(updateDialog);
                 dialogPanel.Show();
-                updateDialog.SetVersionText(latestVersion);
+                updateDialog.SetDialogInfo(latestVersion);
                 updateDialog.VisibleChanged += HidePanel;
             }
             else
@@ -149,20 +149,6 @@ namespace rift_timer
         private void HidePanel(object sender, EventArgs e)
         {
             dialogPanel.Hide();
-
-            if (updateDialog.isConfirmed)
-            {
-                string updateUrl = "http://zajriksrv.us.to/rift-timer/metro/rifttimer-metro-{0}-{1}-{2}.rar";
-                updateUrl = String.Format
-                    (
-                        updateUrl,
-                        latestVersionExplode[0],
-                        latestVersionExplode[1],
-                        latestVersionExplode[2]
-                    );
-                Process.Start(updateUrl);
-            }
-
             updateDialog.Dispose();
         }
 
