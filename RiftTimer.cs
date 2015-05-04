@@ -37,9 +37,6 @@ namespace rift_timer
         private WebClient clientUpdateCheck = new WebClient();
         private Boolean isUpdateAvailable = false;
 
-        private string[] latestVersionExplode;
-        private string[] currentVersionExplode;
-
         private UpdateDialog updateDialog = new UpdateDialog();
 
         private Stopwatch time = new Stopwatch();
@@ -120,8 +117,8 @@ namespace rift_timer
             string latestVersion = clientUpdateCheck.DownloadString(@"http://zajriksrv.us.to/rift-timer/metro/latest.json");
             latestVersion = Regex.Match(latestVersion, @"\d+\.\d+\.\d+").ToString();
 
-            latestVersionExplode = latestVersion.Split('.');
-            currentVersionExplode = versionInfo.Split('.');
+            string[] latestVersionExplode = latestVersion.Split('.');
+            string[] currentVersionExplode = versionInfo.Split('.');
 
             // Compare version strings
             for (int i = 0; i < latestVersionExplode.Length; i++)
